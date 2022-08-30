@@ -10,9 +10,9 @@ const Header = () => {
     <div className="header-general-container">
       <span>Logo</span>
       {!logIn ? (
-        <Button status={"Log-in"} handleLogin={handleLogin} logInStatus={true} />
+        <Button status={"Log-in"} handleLogin={handleLogin} logInStatus={!logIn} />
       ) : (
-        <Button status={"Log-out"} handleLogin={handleLogOut} logInStatus={false} />
+        <Button status={"Log-out"} handleLogin={handleLogOut} logInStatus={!logIn} />
       )}
     </div>
   );
