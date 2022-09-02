@@ -21,13 +21,19 @@ export const BaseColaboradores = [
 ];
 
 const App = () => {
-  const [handleUser, seHandleUser] = useState("");
+  const [handleUser, setHandleUser] = useState("");
   const [handleEmail, setHandleEmail] = useState("");
+  console.log(handleEmail, "sda");
   return (
     <div className="app-genereal-container">
       <Header />
       <div className="content-general-container">
-        <Form />
+        <Form
+          handleUser={handleUser}
+          setHandleUser={setHandleUser}
+          handleEmail={handleEmail}
+          setHandleEmail={setHandleEmail}
+        />
       </div>
     </div>
   );
