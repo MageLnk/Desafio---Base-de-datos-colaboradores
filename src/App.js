@@ -1,5 +1,7 @@
+import { useState } from "react";
 // Components
 import Header from "./Components/Header";
+import Form from "./Components/Form";
 export const BaseColaboradores = [
   {
     id: "1",
@@ -19,10 +21,14 @@ export const BaseColaboradores = [
 ];
 
 const App = () => {
+  const [handleUser, seHandleUser] = useState("");
+  const [handleEmail, setHandleEmail] = useState("");
   return (
     <div className="app-genereal-container">
       <Header />
-      <span className="content-general-container">Content</span>
+      <div className="content-general-container">
+        <Form />
+      </div>
     </div>
   );
 };
