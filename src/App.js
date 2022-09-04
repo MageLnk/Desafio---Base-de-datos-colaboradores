@@ -7,6 +7,7 @@ import { BaseColaboradores } from "./dummyData";
 const App = () => {
   const [handleUser, setHandleUser] = useState("");
   const [handleEmail, setHandleEmail] = useState("");
+  const [handlerSearcher, setHandlerSearcher] = useState("");
   // Simulate get data some from api
   const [dataCollaborators, setDataCollaborators] = useState(BaseColaboradores);
 
@@ -16,7 +17,7 @@ const App = () => {
       {
         id: (dataCollaborators.length + 1).toString(),
         nombre: handleUser,
-        correo: handleEmail,
+        correo: handleEmail.toLowerCase(),
       },
     ]);
   };
@@ -32,7 +33,11 @@ const App = () => {
           handleSubmit={handleSubmit}
         />
         <h2 className="content-general-sub-title">Lista de colaboradores</h2>
-        <ListOfCollaborators collaboratorsList={dataCollaborators} />
+        {!handlerSearcher ? (
+          <ListOfCollaborators collaboratorsList={dataCollaborators} />
+        ) : (
+          <span>Buscando</span>
+        )}
       </div>
     </div>
   );

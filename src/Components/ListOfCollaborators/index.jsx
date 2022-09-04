@@ -10,7 +10,17 @@ const ListOfCollaborators = ({ collaboratorsList }) => {
       </div>
     );
   });
-  return collaboratorsListResult;
+  return (
+    <>
+      {collaboratorsList !== [] || collaboratorsList === "" ? (
+        collaboratorsListResult
+      ) : (
+        <div className="list-of-collaborators-container">
+          <span>No hay resultados</span>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default ListOfCollaborators;
