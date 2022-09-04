@@ -41,7 +41,7 @@ body {
 }
 .content-general-container .form-general-container button {
   width: 16%;
-  padding: 0.3rem;
+  padding: 0.4rem;
   margin: 0 0 0 0.5rem;
   background-color: #1890ff;
   color: white;
@@ -49,6 +49,13 @@ body {
 }
 .content-general-container .form-general-container button:hover {
   background-color: #40a9ff;
+}
+.content-general-container .content-general-sub-title {
+  margin: 1rem;
+  font-size: 36px;
+}
+.content-general-container .list-of-collaborators-container {
+  margin: 1rem;
 }
 
 .app-genereal-container {

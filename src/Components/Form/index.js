@@ -1,6 +1,13 @@
-const Input = ({ handleUser, setHandleUser, handleEmail, setHandleEmail }) => {
+const Input = ({ handleUser, setHandleUser, handleEmail, setHandleEmail, handleSubmit }) => {
   return (
-    <form className="form-general-container" typeof="submit" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="form-general-container"
+      typeof="submit"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
       <input
         placeholder="Ingresa el nombre del colaborador"
         value={handleUser}

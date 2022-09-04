@@ -1,7 +1,9 @@
 import { useState } from "react";
 // Components
-import Header from "./Components/Header";
 import Form from "./Components/Form";
+import Header from "./Components/Header";
+import ListOfCollaborators from "./Components/ListOfCollaborators";
+
 export const BaseColaboradores = [
   {
     id: "1",
@@ -23,7 +25,11 @@ export const BaseColaboradores = [
 const App = () => {
   const [handleUser, setHandleUser] = useState("");
   const [handleEmail, setHandleEmail] = useState("");
-  console.log(handleEmail, "sda");
+
+  const handleSubmit = () => {
+    console.log("Aer");
+  };
+
   return (
     <div className="app-genereal-container">
       <Header />
@@ -33,7 +39,10 @@ const App = () => {
           setHandleUser={setHandleUser}
           handleEmail={handleEmail}
           setHandleEmail={setHandleEmail}
+          handleSubmit={handleSubmit}
         />
+        <h2 className="content-general-sub-title">Lista de colaboradores</h2>
+        <ListOfCollaborators collaboratorsList={BaseColaboradores} />
       </div>
     </div>
   );
