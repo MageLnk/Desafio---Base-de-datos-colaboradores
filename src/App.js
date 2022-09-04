@@ -1,35 +1,22 @@
 import { useState } from "react";
 // Components
-import Form from "./Components/Form";
-import Header from "./Components/Header";
-import ListOfCollaborators from "./Components/ListOfCollaborators";
-
-export const BaseColaboradores = [
-  {
-    id: "1",
-    nombre: "Colaborador 1",
-    correo: "colaborador1@colaborador1.com",
-  },
-  {
-    id: "2",
-    nombre: "Colaborador 2",
-    correo: "colaborador2@colaborador2.com",
-  },
-  {
-    id: "3",
-    nombre: "Colaborador 3",
-    correo: "colaborador3@colaborador3.com",
-  },
-];
+import { Form, Header, ListOfCollaborators } from "./Components";
+// Dummy Data
+import { BaseColaboradores } from "./dummyData";
 
 const App = () => {
   const [handleUser, setHandleUser] = useState("");
   const [handleEmail, setHandleEmail] = useState("");
+  const [dataCollaborators, setDataCollaborators] = useState(BaseColaboradores);
 
   const handleSubmit = () => {
-    console.log("Aer");
+    const newData = {
+      id: (dataCollaborators.length + 1).toString(),
+      nombre: handleUser,
+      correo: handleEmail,
+    };
+    setDataCollaborators([...dataCollaborators, newData]);
   };
-
   return (
     <div className="app-genereal-container">
       <Header />
@@ -42,7 +29,7 @@ const App = () => {
           handleSubmit={handleSubmit}
         />
         <h2 className="content-general-sub-title">Lista de colaboradores</h2>
-        <ListOfCollaborators collaboratorsList={BaseColaboradores} />
+        <ListOfCollaborators collaboratorsList={dataCollaborators} />
       </div>
     </div>
   );
