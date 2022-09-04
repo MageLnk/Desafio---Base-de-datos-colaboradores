@@ -1,11 +1,25 @@
 const Input = ({ handleUser, setHandleUser, handleEmail, setHandleEmail, handleSubmit }) => {
+  const validEmail = (email) => {
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+  };
+
   return (
     <form
       className="form-general-container"
       typeof="submit"
       onSubmit={(e) => {
         e.preventDefault();
+        if (!handleUser || !handleEmail) {
+          alert("Debe llenar información por favor");
+          return;
+        }
+        if (!validEmail(handleEmail)) {
+          alert("Debe ingresar un correo válido");
+          return;
+        }
         handleSubmit();
+        setHandleUser("");
+        setHandleEmail("");
       }}
     >
       <input

@@ -7,15 +7,18 @@ import { BaseColaboradores } from "./dummyData";
 const App = () => {
   const [handleUser, setHandleUser] = useState("");
   const [handleEmail, setHandleEmail] = useState("");
+  // Simulate get data some from api
   const [dataCollaborators, setDataCollaborators] = useState(BaseColaboradores);
 
   const handleSubmit = () => {
-    const newData = {
-      id: (dataCollaborators.length + 1).toString(),
-      nombre: handleUser,
-      correo: handleEmail,
-    };
-    setDataCollaborators([...dataCollaborators, newData]);
+    setDataCollaborators([
+      ...dataCollaborators,
+      {
+        id: (dataCollaborators.length + 1).toString(),
+        nombre: handleUser,
+        correo: handleEmail,
+      },
+    ]);
   };
   return (
     <div className="app-genereal-container">
