@@ -10,6 +10,7 @@ const App = () => {
   const [handlerSearcher, setHandlerSearcher] = useState("");
   // Simulate get data some from api
   const [dataCollaborators, setDataCollaborators] = useState(BaseColaboradores);
+  const [dataCollaboratorsFiltered, setDataCollaboratorsFiltered] = useState([]);
 
   const handleSubmit = () => {
     setDataCollaborators([
@@ -21,9 +22,24 @@ const App = () => {
       },
     ]);
   };
+
+  const filterSearcher = () => {
+    const filterData = dataCollaborators.filter((data) => {
+      let finalData = "";
+      if (data.nombre.includes(handlerSearcher) || data.correo.includes(handlerSearcher)) {
+        finalData = data;
+      }
+      return finalData;
+    });
+    setDataCollaboratorsFiltered(filterData);
+  };
   return (
     <div className="app-genereal-container">
-      <Header />
+      <Header
+        handlerSearcher={handlerSearcher}
+        setHandlerSearcher={setHandlerSearcher}
+        filterSearcher={filterSearcher}
+      />
       <div className="content-general-container">
         <Form
           handleUser={handleUser}
@@ -36,7 +52,7 @@ const App = () => {
         {!handlerSearcher ? (
           <ListOfCollaborators collaboratorsList={dataCollaborators} />
         ) : (
-          <span>Buscando</span>
+          <ListOfCollaborators collaboratorsList={dataCollaboratorsFiltered} />
         )}
       </div>
     </div>

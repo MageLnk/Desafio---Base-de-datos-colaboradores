@@ -10,7 +10,7 @@ const Input = ({ handleUser, setHandleUser, handleEmail, setHandleEmail, handleS
       onSubmit={(e) => {
         e.preventDefault();
         if (!handleUser || !handleEmail) {
-          alert("Debe llenar información por favor");
+          alert("No debe dejar espacios en blancos");
           return;
         }
         if (!validEmail(handleEmail)) {
